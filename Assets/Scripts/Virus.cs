@@ -59,6 +59,7 @@ public class Virus : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
             PlayerStats.instance.AddPoints(scoreReward);
+            other.GetComponent<PlayerController>().VirusBoost();
             Destroy(gameObject);
         }
         if (other.tag == "RedBloodCell") {

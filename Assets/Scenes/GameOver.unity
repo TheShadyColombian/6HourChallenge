@@ -359,10 +359,10 @@ RectTransform:
   m_Father: {fileID: 2107679376}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.75}
-  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchorMin: {x: 0.5, y: 0.75}
+  m_AnchorMax: {x: 0.5, y: 0.75}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -160, y: 300}
+  m_SizeDelta: {x: 960, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839923028
 MonoBehaviour:
@@ -384,9 +384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WHITE BLOOD CELL
-
-'
+  m_text: GAME OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1bd3df3709c74aa4883a6b1459c303de, type: 2}
   m_sharedMaterial: {fileID: -1716894070324707267, guid: 1bd3df3709c74aa4883a6b1459c303de, type: 2}

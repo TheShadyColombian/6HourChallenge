@@ -24,7 +24,8 @@ public class PlayerStats : MonoBehaviour {
         }
         if (movement <= 0) {
             movement = 0;
-            GameManager.sharedInstance.GameOver();
+            if (PlayerController.instance.rb.velocity.sqrMagnitude < 0.1f)
+                GameManager.sharedInstance.GameOver();
         }
     }
 

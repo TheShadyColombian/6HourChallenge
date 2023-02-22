@@ -29,7 +29,8 @@ public class RedBloodCell : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
-            PlayerStats.instance.movement += movementRestorationAmount;
+            if (!PlayerController.instance.dead)
+                PlayerStats.instance.movement += movementRestorationAmount;
             Destroy(gameObject);
         }
     }

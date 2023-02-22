@@ -30,9 +30,9 @@ public class MovementBarDisplay : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        slider.value = ps.movement / ps.movementMax;
+        slider.value = Mathf.Max (0.0001f, ps.movement / ps.movementMax);
 
-        consumeRect.anchorMin = Vector2.right * (1 - (previewConsume / (ps.movement)));
+        consumeRect.anchorMin = Vector2.right * (1 - Mathf.Max (0.0001f, (previewConsume / (ps.movement))));
         consumeRect.offsetMin = Vector2.zero;
 
     }

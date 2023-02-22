@@ -74,16 +74,16 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.40127105
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0777385
-        value: 0
+        time: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -91,17 +91,8 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.51237106
-        value: 0.13934326
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 1
-        value: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -113,8 +104,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 0.089711644, g: 0.7057892, b: 0.9056604, a: 1}
+      key0: {r: 0.089711644, g: 0.7057892, b: 0.9056604, a: 0}
+      key1: {r: 0.089711644, g: 0.7057892, b: 0.9056604, a: 0.5019608}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -141,7 +132,7 @@ TrailRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 0
+    numCapVertices: 16
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
@@ -238,6 +229,8 @@ MonoBehaviour:
   boostChargeSpeed: 2.5
   forceCost: 1
   idleCost: 0.2
+  virusBoostForce: 5
+  trailOpacity: 0.25
   Movementcolor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0.69411767}
   normalcolor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2947188454571502421
