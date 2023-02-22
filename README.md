@@ -8,7 +8,7 @@ Improve the *White Blood Cell* mobile game in 6 hours.
 |-------------------|-----------|---------------|
 |Challenge start    | 2023/2/22 | 12:30PM EST   |
 |Initial commit     | 2023/2/22 | 01:00PM EST   |
-|First checkpoint   | 2023/2/22 | 01:00PM EST   |
+|First checkpoint   | 2023/2/22 | 04:10PM EST   |
 
 ## Plans
 
