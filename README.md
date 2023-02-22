@@ -4,24 +4,36 @@ Improve the *White Blood Cell* mobile game in 6 hours.
 
 ## Time Log
 
-Challenge start: Wednesday, February 22nd 2023 @ 12:30PM EST
+| Event             | Date      | Time          |
+|-------------------|-----------|---------------|
+|Challenge start    | 2023/2/22 | 12:30PM EST   |
+|Initial commit     | 2023/2/22 | 01:00PM EST   |
+|First checkpoint   | 2023/2/22 | 01:00PM EST   |
 
 ## Plans
 
-After briefly playtesting the game, I have already come up with a few changes I'd like to make to the game:
+After briefly playtesting the game, I have already come up with a some changes that I'd like to make to the game:
 
 - Changes to game mechanics:
-    - Make Viruses eat the Red Blood Cells instead of having them be idle.
-    - If a Virus consumes a Red Blood Cell, a score penalty is applied.
-    - Consuming Viruses could extend the player's momentum.
+    - [x] Make Viruses eat the Red Blood Cells instead of having them be idle.
+    - [x] If a Virus consumes a Red Blood Cell, a score penalty is applied.
+    - [ ] Consuming Viruses could extend the player's momentum.
     - Turn system overhaul:
-        - Change the turns system to use an analog bar instead of a fixed number of turns.
-        - Make the turns bar deplete on its own to disincentivize camping/farming.
+        - [x] Change the turns system to use an analog bar instead of a fixed number of turns.
+        - [x] Make the turns bar deplete on its own to disincentivize camping/farming.
     - Boost system overhaul:
-        - Display boost direction and force as the player charges the boost
-        - Apply drag to player movement
-        - The longer a boost is charged for, the more of the turn bar is depleted
+        - [ ] Display boost direction and force as the player charges the boost.
+        - [x] Apply drag to player movement.
+        - [x] The longer a boost is charged for, the more of the turn bar is depleted.
 - Fixes/improvements:
-    - [Complete] Fix UI canvases to properly scale dynamically.
-    - Replace UI assets.
-    - Add juice to players consuming Viruses/Red Blood Cells.
+    - [x] Fix UI canvases to properly scale dynamically.
+    - [ ] Add juice to players consuming Viruses/Red Blood Cells.
+    
+## Unplanned Extra Features
+
+The following features were added during the 6 hour window which weren't originally planned, but either came up organically during the development process or were deemed necessary while playtesting:
+
+- Replace UI assets.
+- Font change throughout the UI (now using [Indestructible Type](https://indestructibletype.com/)'s [Gnomon](https://indestructibletype.com/Gnomon.html) font).
+- Spawn enemies in bursts with delay inbetween each enemy in the burst.
+- Preview the amount of energy that will be consumed in the movement bar.

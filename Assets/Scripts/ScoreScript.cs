@@ -9,6 +9,6 @@ public class ScoreScript : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = "Score: " + PlayerStats.instance.points.ToString();
+        scoreText.text = "Score: " + PlayerStats.instance.score.ToString();
     }
 }
