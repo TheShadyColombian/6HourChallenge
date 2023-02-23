@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using RDG;
 
 public class CameraShake : MonoBehaviour { 
 
@@ -46,6 +47,16 @@ public class CameraShake : MonoBehaviour {
 
     public static void HitFreeze () {
         instance.StartCoroutine("HitFreezeCoroutine");
+    }
+
+    public IEnumerator PickupVibratePattern() {
+
+        for (int i = 0; i < 3; i++) {
+            Vibration.Vibrate(10);
+            Debug.Log("BZZT~");
+            yield return new WaitForSecondsRealtime(0.0025f);
+        }
+
     }
 
 }

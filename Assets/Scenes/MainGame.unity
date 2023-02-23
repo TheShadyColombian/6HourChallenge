@@ -1866,8 +1866,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1193883123, guid: 0daa79ec23017244885f206d31194eba, type: 3}
-      propertyPath: m_UseWorldSpace
-      value: 1
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193883123, guid: 0daa79ec23017244885f206d31194eba, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 2947188453876513196, guid: 0daa79ec23017244885f206d31194eba, type: 3}
       propertyPath: m_Name

@@ -36,17 +36,9 @@ public class RedBloodCell : MonoBehaviour {
                 PlayerStats.instance.movement += movementRestorationAmount;
             CameraShake.AddShake(consumeShake);
             CameraShake.HitFreeze();
+            CameraShake.instance.StartCoroutine("PickupVibratePattern");
             Destroy(gameObject);
         }
-    }
-
-    public IEnumerator PickupVibratePattern() {
-
-        for (int i = 0; i < 3; i++) {
-            Vibration.Vibrate(120);
-            yield return new WaitForSeconds(0.3f);
-        }
-
     }
 
 }

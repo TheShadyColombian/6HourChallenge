@@ -42,18 +42,18 @@ The following features were added during the 6 hour window which weren't origina
 - Font change throughout the UI (now using [Indestructible Type](https://indestructibletype.com/)'s [Gnomon](https://indestructibletype.com/Gnomon.html) font).
 - Spawn enemies in bursts with delay inbetween each enemy in the burst.
 - Preview the amount of energy that will be consumed in the movement bar.
-- Added background graphic so that walls are visible
-- QOL: If a player clicks/taps for a tiny fraction of time (accidental double-click, bad debounce settings, etc.) the action is ignored, energy is refunded and previous velocity is maintained
-- Added hitfreeze alongside camera shake
-- Made player trail opacity fade as velocity reaches 0
-- Reworked shake system
-- Vibration when entities are consumed (untested)
+- Added background graphic so that walls are visible.
+- QOL: If a player clicks/taps for a tiny fraction of time (accidental double-click, bad debounce settings, etc.) the action is ignored, energy is refunded and previous velocity is maintained.
+- Added hitfreeze alongside camera shake.
+- Made player trail opacity fade as velocity reaches 0.
+- Reworked shake system.
+- Vibration when entities are consumed (untested).
 
 ### Post-Challenge
 
-Since the challenge is over, I won't continue to update this repo anymore (except to add links to new branches or forks, if necessary). There are still some things I want to do with this project. If I ever get around to implementing them, these changes will be tracked in [a different branch](https://github.com/DaskalosJSM/6HoursChallenge/tree/JuanCallejas_PostChallenge), or perhaps even a fork, so take a look there for new changes. Here are some of the changes I've already started considering:
+There are still some things I want to do with this project. I've stored the project as it was when the challenge ended on a separate branch, and the main branch will contain any future changes I make to the game. Here are some of the changes I've already started considering:
 
-- Fancy animated transitions between screens (main menu/game/game over)
-- Animations for the player and various entities for when they are consumed, when the player is launched or bounces, etc.
-- High score storage for display on Game Over screen (I was hoping to do this during the challenge, but I ran out of time when implementing the screenshake and hitfreeze)
-- Sound effects are always a welcome addition and definitely improve the game feel, so if I find a way to obtain some sound effects it would be great to add those as well.
+- [ ] Fancy animated transitions between screens (main menu/game/game over)
+- [ ] Animations for the player and various entities for when they are consumed, when the player is launched or bounces, etc.
+- [ ] High score storage for display on Game Over screen (I was hoping to do this during the challenge, but I ran out of time when implementing the screenshake and hitfreeze)
+- [ ] Sound effects are always a welcome addition and definitely improve the game feel, so if I find a way to obtain some sound effects it would be great to add those as well.

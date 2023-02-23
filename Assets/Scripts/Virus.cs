@@ -67,7 +67,7 @@ public class Virus : MonoBehaviour {
             Destroy(gameObject);
             CameraShake.AddShake(consumeShake);
             CameraShake.HitFreeze();
-            Vibration.Vibrate(120);
+            Vibration.Vibrate(60);
         }
         if (other.tag == "RedBloodCell") {
             PlayerStats.instance.SubtractPoints(scoreReward);
