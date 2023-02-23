@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.Game)
         {
-            SceneManager.LoadScene("PrincipalGame");
+            SceneManager.LoadScene("MainGame");
             //TODO: colocar la logica del level game
         }
         else if (newGameState == GameState.GameOver)
