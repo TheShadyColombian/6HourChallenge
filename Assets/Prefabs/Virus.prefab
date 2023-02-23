@@ -153,6 +153,8 @@ MonoBehaviour:
   boostInaccuracyMagnitude: 0.5
   scoreReward: 10
   scorePenaltyOnRBCConsumption: 10
+  consumeShake: 2.5
+  bloodCellConsumedBGColour: {r: 1, g: 0.41037738, b: 0.4923346, a: 1}
 --- !u!50 &8213963961081411095
 Rigidbody2D:
   serializedVersion: 4

@@ -9,25 +9,31 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb { get; private set; }
     public bool dead { get; private set; }
 
-    
-    public float boostForce;
+    [Header ("Movement Parameters")]
     public float boostChargeSpeed;
+    public float boostForce;
+    public float virusBoostForce;
     public float forceCost;
     public float idleCost;
-    public float virusBoostForce;
+    [Header ("Display Parameters")]
     public float trailOpacity;
-    public Color Movementcolor;
-    public Color normalcolor;
+    public float directionMinimumRadius;
+    public float directionRadiusMultiplier;
 
     private PlayerStats stats;
     private TrailRenderer tr;
+    private LineRenderer directionLineRenderer;
+    private LineRenderer touchPointLineRenderer;
     private GradientAlphaKey trailOpacityKey;
     private Vector2 direction;
+    private Vector2 velocityInsurance;
     private float boostCharge;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponentInChildren<TrailRenderer>();
+        directionLineRenderer = GetComponent<LineRenderer>();
+        touchPointLineRenderer = GetComponentsInChildren<LineRenderer>()[1];
         stats = PlayerStats.instance;
         instance = this;
     }
@@ -39,6 +45,7 @@ public class PlayerController : MonoBehaviour {
             dead = false;
 
             if (Input.GetMouseButtonDown(0)) {
+                velocityInsurance = rb.velocity;
                 rb.velocity = Vector3.zero;
                 boostCharge = 0;
             }
@@ -48,16 +55,35 @@ public class PlayerController : MonoBehaviour {
                 if (boostCharge * forceCost < stats.movement)
                     boostCharge += Time.deltaTime * boostChargeSpeed;
                 MovementBarDisplay.instance.previewConsume = boostCharge;
+                touchPointLineRenderer.SetPositions(new Vector3[] {
+                    transform.position,
+                    (Vector2)Camera.main.ScreenToWorldPoint((Vector2)Input.mousePosition)
+                });
+                direction = Camera.main.ScreenToWorldPoint((Vector2)Input.mousePosition) - transform.position;
+                directionLineRenderer.SetPositions(new Vector3[] {
+                    (direction.normalized * directionMinimumRadius) + (Vector2) transform.position,
+                    (direction.normalized * (directionMinimumRadius + (boostCharge * directionRadiusMultiplier))) + (Vector2) transform.position
+                });
             } else
                 stats.movement -= Time.deltaTime * idleCost;
 
+            //Only launch if the player held the tap for more than 0.05 seconds, to avoid accidental taps or double taps that might cancel out the previous launch (happened a lot during testing)
             if (Input.GetMouseButtonUp(0))
-                Launch();
+                if (boostCharge > 0.05f)
+                    Launch();
+                else
+                    //If the player accidentally performs a microclick, revert their velocity to what it was before to avoid players accidentally breaking from taps
+                    rb.velocity = velocityInsurance;
 
         } else if (!dead) {
             Launch();
             dead = true;
         }
+
+        bool enableLineRenderers = Input.GetMouseButton(0) && (stats.movement > 0);
+        touchPointLineRenderer.widthMultiplier = Mathf.Lerp(touchPointLineRenderer.widthMultiplier, enableLineRenderers ? 0.6f  : 0, Time.deltaTime * 10);
+        directionLineRenderer.widthMultiplier  = Mathf.Lerp(directionLineRenderer.widthMultiplier,  enableLineRenderers ? 0.05f : 0, Time.deltaTime * 10);
+        
 
         trailOpacityKey = new GradientAlphaKey (rb.velocity.magnitude * trailOpacity / boostForce, 1);
         Gradient gradient = tr.colorGradient;

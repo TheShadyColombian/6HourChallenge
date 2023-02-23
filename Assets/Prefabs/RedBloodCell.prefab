@@ -62,7 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36d62ecd8afa2c418bacaa63f793f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementRestorationAmount: 2
+  consumeShake: 2.5
+  movementRestorationAmount: 2.5
 --- !u!1 &4598133954272707840
 GameObject:
   m_ObjectHideFlags: 0

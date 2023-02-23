@@ -1,26 +1,51 @@
 using System.Collections;
 using UnityEngine;
 
-public class CameraShake : MonoBehaviour
-{
-    public IEnumerator Shake(float duration, float magnitude)
-    {
-        Vector3 originalPos = transform.localPosition;
+public class CameraShake : MonoBehaviour { 
 
-        float elapsed = 0.0f;
+    public static CameraShake instance;
 
-        while (elapsed < duration)
-        {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
+    public float shakeAmplitude;
+    public float shakeDecay;
+    public float shakeSpeed;
 
-            transform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
+    private static float shake;
+    private Color defaultBackgroundColour;
 
-            elapsed += Time.deltaTime;
-
-            yield return null;
-        }
-
-        transform.localPosition = originalPos;
+    private void Start() {
+        instance = this;
+        defaultBackgroundColour = Camera.main.backgroundColor;
     }
+
+    public void Update() {
+
+        shake = Mathf.Max(shake / (1 + (Time.unscaledDeltaTime * shakeDecay)), 0);
+
+        transform.localPosition = new Vector2(
+            Mathf.PerlinNoise(Time.unscaledTime * shakeSpeed, 0) - 0.4f, 
+            Mathf.PerlinNoise(Time.unscaledTime * shakeSpeed, 100) - 0.4f
+        ) * shakeAmplitude * shake;
+
+        Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, defaultBackgroundColour, Time.deltaTime * 2);
+
+    }
+
+    public static void AddShake (float amount) {
+
+        shake += amount;
+
+    }
+
+    private IEnumerator HitFreezeCoroutine () {
+
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.1f);
+        Time.timeScale = 1;
+
+    }
+
+    public static void HitFreeze () {
+        instance.StartCoroutine("HitFreezeCoroutine");
+    }
+
 }

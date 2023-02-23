@@ -24,9 +24,14 @@ public class PlayerStats : MonoBehaviour {
         }
         if (movement <= 0) {
             movement = 0;
-            if (PlayerController.instance.rb.velocity.sqrMagnitude < 0.1f)
-                GameManager.sharedInstance.GameOver();
+            if (PlayerController.instance.rb.velocity.sqrMagnitude < 0.01f)
+                StartCoroutine("GameOverDelay");
         }
+    }
+
+    public IEnumerator GameOverDelay () {
+        yield return new WaitForSeconds(1);
+        GameManager.sharedInstance.GameOver();
     }
 
     public void AddPoints(float value) {

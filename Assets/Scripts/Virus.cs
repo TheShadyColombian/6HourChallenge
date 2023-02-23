@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RDG;
 
 public class Virus : MonoBehaviour {
 
@@ -10,6 +11,9 @@ public class Virus : MonoBehaviour {
     public float boostInaccuracyMagnitude = 1;
     public float scoreReward = 10;
     public float scorePenaltyOnRBCConsumption = 10;
+    public float consumeShake = 1;
+
+    public Color bloodCellConsumedBGColour;
 
     private Rigidbody2D rb;
     private float boostTimer;
@@ -61,9 +65,13 @@ public class Virus : MonoBehaviour {
             PlayerStats.instance.AddPoints(scoreReward);
             other.GetComponent<PlayerController>().VirusBoost();
             Destroy(gameObject);
+            CameraShake.AddShake(consumeShake);
+            CameraShake.HitFreeze();
+            Vibration.Vibrate(120);
         }
         if (other.tag == "RedBloodCell") {
             PlayerStats.instance.SubtractPoints(scoreReward);
+            Camera.main.backgroundColor = bloodCellConsumedBGColour;
             Destroy(other.gameObject);
         }
     }
